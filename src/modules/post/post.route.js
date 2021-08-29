@@ -1,11 +1,13 @@
 const routing = require('bagong').Router
+const Auth = require('bagong-auth').Middleware
+
 const PostController = require('./post.controller.js')
 
 const routes = [
 	{
 		path: '/',
 		end: {
-			get: PostController.get,
+			get: [Auth, PostController.get],
 		}
 	}
 ]
